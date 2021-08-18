@@ -1,0 +1,96 @@
+@extends('adminlte::page')
+
+@section('title', 'Servicios')
+
+@section('content_header')
+
+    <div class="col-sm-13">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+                <a href="{{ route('home') }}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">
+                Registrar mis servicios
+            </li>
+        </ol>
+    </div>
+
+
+    <h1 class="m-0 text-dark">Administrar mis servicios</h1>
+    @if($busqueda)
+        <h5 class="m-0 text-dark">Buscando: "{{$busqueda}}"</h5>
+    @endif
+
+@stop
+
+@section('content')
+
+
+
+<div class="container">
+    @if(Session::has('message'))
+    <div class="alert alert-success" role="alert">
+        {{Session::get('message')}}
+    </div>
+    @endif
+</div>
+
+
+<div class="col-sm-13">
+    <ol class="btn btn-success float-sm-left">
+    <a href="{{ route('service.create') }}" class="btn btn-success -item">Registrar Servicio <i class="fas fa-plus"></i></a>
+    </ol>
+    </div>
+    <br/>
+    <br/>
+
+    <table class="table table-bordered table-striped dataTable table-hover text-center" >
+
+        <thead class="thead-light">
+            <tr>
+                <th><i class="fas fa-clipboard-check"></i></th>
+                <th>Foto  <i class="fas fa-camera"></i></th>
+                <th>Titulo  <i class="fas fa-tools"></i></th>
+                <th>Precio(soles)  <i class="fas fa-hand-holding-usd"></i></th>
+                <th>Descripción  <i class="fas fa-id-card"></i></th>
+                <th>Acciones  <i class="fas fa-mouse"></i></th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach($services as $service)
+            <tr>
+
+
+                <td>{{$loop->iteration}}</td>
+
+                <td>
+                    <img src="{{asset('storage').'/'.$service->picture_path}}" class="img-thumbnail img-fluid" alt="" width="200">
+
+                </td>
+                <td>{{$service->title}}</td>
+                <td>{{$service->price}}</td>
+                <td>{{$service->description}}</td>
+                <td>
+
+                    <a class="btn btn-warning" href="{{ route('service.edit', $service) }}">Editar
+                    </a>
+                  
+                    <form method="post" action="{{ route('service.destroy', $service) }}" style="display:inline">
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estas seguro que deseas Borrar el servicio?');">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+
+    </table>
+    {{$services->links()}}
+
+</div>
+@stop
+
+
