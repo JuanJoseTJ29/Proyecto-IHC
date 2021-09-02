@@ -13,7 +13,7 @@ class Service extends Model
     /**
      * Get the profile for the service
      */
-    public function profile()
+    public function profile()  
     {
         return $this->belongsTo('App\Profile');
     }

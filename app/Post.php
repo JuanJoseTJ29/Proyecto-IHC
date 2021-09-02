@@ -23,7 +23,7 @@ class Post extends Model
      * Get the profile that owns the post
      */
     public function profile()
-    {
+    { 
         return $this->belongsTo('App\Profile');
     }
 

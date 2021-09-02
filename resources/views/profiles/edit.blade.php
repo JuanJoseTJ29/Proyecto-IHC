@@ -529,7 +529,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="profession" class="col-md-2 col-form-label text-md-right">Profesión</label>
+                                    <label for="profession" class="col-md-2 col-form-label text-md-right">Trabajo</label>
 
                                     <div class="col-md-6">
                                         <input id="profession" type="text" class="form-control" name="profession" value="{{ $profile->profession ?? '' }}">

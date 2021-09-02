@@ -28,7 +28,7 @@ class Profile extends Model
 
     /**
      * Get the posts fot the profile
-     */
+     */ 
     public function posts()
     {
         return $this->hasMany('App\Post');

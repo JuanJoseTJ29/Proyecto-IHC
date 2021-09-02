@@ -46,7 +46,7 @@ $status = $kernel->handle(
 | so that any final work may be done by the application before we shut
 | down the process. This is the last thing to happen to the request.
 |
-*/
+*/ 
 
 $kernel->terminate($input, $status);
 

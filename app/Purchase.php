@@ -24,7 +24,7 @@ class Purchase extends Model
     {
         return $this->belongsTo('App\Service');
     }
-
+   
     /**
      * Get the profile for the purchase
      */

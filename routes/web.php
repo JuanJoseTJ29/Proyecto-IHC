@@ -34,7 +34,7 @@ Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit')->midd
 Route::put('profile/update', 'ProfileController@update')->name('profile.update')->middleware('auth');
 Route::get('profile/{profile}', 'ProfileController@show')->name('profile.show')->middleware('auth');
 
-/* == Finaliza rutas para perfil de usuario == */
+/* == Finaliza rutas para perfil de usuario == */ 
 
 /* Inicia ruta para eliminar usuario */
 Route::delete('user/delete', 'ProfileController@destroy')->name('user.destroy')->middleware('auth');

@@ -14,7 +14,7 @@ class PortadaController extends Controller
      */
     public function index()
     {
-        $services = Service::take(9)->get();
+        $services = Service::take(6)->get();
 
         return view('welcome', compact('services'));
     }

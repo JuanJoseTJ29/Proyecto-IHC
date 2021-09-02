@@ -14,3 +14,4 @@ class TypeRating extends Model
         return $this->hasMany('App\Purchase');
     }
 }
+  

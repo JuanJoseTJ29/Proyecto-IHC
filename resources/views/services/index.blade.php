@@ -76,7 +76,8 @@
 
                     <a class="btn btn-warning" href="{{ route('service.edit', $service) }}">Editar
                     </a>
-                  
+                    <a class="btn btn-info" href="{{ route('service.show', $service) }}">Ver
+                    </a>
                     <form method="post" action="{{ route('service.destroy', $service) }}" style="display:inline">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Service Home Store',
+    'title' => 'Service Home Store', 
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -269,7 +269,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'Mi perfil',
-            'url'  => '',
+            'url'  => 'profile/edit',
             'icon' => 'fas fa-fw fa-user',
         ],
         // [

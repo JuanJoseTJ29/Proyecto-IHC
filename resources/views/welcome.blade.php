@@ -406,12 +406,22 @@
                     @if (Route::has('login'))
                         @auth
                         <li class="menu__item"><a href="{{ url('/home') }}" class="menu__link menu__link--select">Inicio</a></li>
+                        <li class="menu__item"><a href="{{ url('/home') }}" class="menu__link menu__link">Servicios Disponibles</a></li>
+                        <li class="menu__item"><a href="{{ url('/service/info') }}" class="menu__link menu__link">¿Quienes somos?</a></li>
+                        <li class="menu__item"><a href="https://drive.google.com/file/d/14SjIqUkib_c4kSxZ8ukLqKwYIRDiuqHj/view" class="menu__link menu__link">Manual de uso</a></li>
+                        
+                        
                         @else
                             <li class="menu__item"><a href="{{ url('/login') }}" class="menu__link"> Iniciar sesión </a></li>
                             @if (Route::has('register'))
                                 <li class="menu__item"><a href="{{ url('/register') }}" class="menu__link">Registrarse</a></li>
+        
                             @endif
-                        @endauth
+                            <li class="menu__item"><a href="{{ url('/home') }}" class="menu__link menu__link">Servicios Disponibles</a></li>
+                            <li class="menu__item"><a href="{{ url('/service/info') }}" class="menu__link menu__link">¿Quienes somos?</a></li>
+                            <li class="menu__item"><a href="https://drive.google.com/file/d/14SjIqUkib_c4kSxZ8ukLqKwYIRDiuqHj/view" class="menu__link menu__link">Manual de uso</a></li>
+                        
+                            @endauth
                     @endif
                    <!-- <li class="menu__item"><a href="nosotros" class="menu__link">Nosotros</a></li>-->
                 </ul>
@@ -431,6 +441,23 @@
         </section>   
         <!-- Publica -->
         
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-7">
+                    <h2 class="TituloServicio">Servicios Ofrecidos</h2>
+                </div>
+            </div>   
+            <div class="row justify-content-center text-center">
+                @foreach($services as $service)
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                        <p ><a href="{{ route('service.show', $service) }}"  class="NombreServicio">{{$service->title}}</a></p>
+                        <a href="{{ route('service.show', $service) }}" >
+                            <img src="{{ asset('storage').'/'.$service->picture_path }}" class="imagenServicio" width="300" alt="Imagen">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
 
         <script>
             let btnMenu = document.getElementById('btnmenu');

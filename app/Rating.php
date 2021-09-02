@@ -23,6 +23,6 @@ class Rating extends Model
      */
     public function type_rating()
     {
-        return $this->belongsTo('App\TypeRating');
+        return $this->belongsTo('App\TypeRating');   
     }
 }
